@@ -1,4 +1,16 @@
 // https://www.codewars.com/kata/57216d4bcdd71175d6000560/train/javascript
+function padIt(str, n) {
+  let count = 1;
+  while (count <= n) {
+    if (count % 2 === 1) {
+      str = "*" + str;
+    } else {
+      str = str + "*";
+    }
+    count++;
+  }
+  return str;
+}
 
 // https://www.codewars.com/kata/5721a78c283129e416000999/train/javascript
 function pickIt(arr){
