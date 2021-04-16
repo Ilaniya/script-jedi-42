@@ -15,3 +15,13 @@ function bonusTime(salary, bonus) {
 }
 
 // https://www.codewars.com/kata/5a58d889880385c2f40000aa/train/javascript
+function automorphic(n) {
+  let nPow = Math.pow(n, 2).toString();
+  let nStr = n.toString();
+  if (nPow.substr(-nStr.length) === nStr) {
+    return "Automorphic";
+  } else {
+    return "Not!!";
+  }
+}
+
