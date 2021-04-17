@@ -1,4 +1,11 @@
 // https://www.codewars.com/kata/maximum-multiple/train/javascript
+function maxMultiple(divisor, bound){
+    for(let i = bound; i>=divisor; i--){
+    if(i%divisor === 0){
+      return i;
+    }
+  }
+}
 
 // https://www.codewars.com/kata/is-he-gonna-survive/train/javascript
 function hero(bullets, dragons){
