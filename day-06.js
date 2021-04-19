@@ -16,7 +16,7 @@ function hero(bullets, dragons){
 
 // https://www.codewars.com/kata/59441520102eaa25260000bf/train/javascript
 function unusualFive() {
-let fiveStr = "Tadam";
+const fiveStr = "Tadam";
   return fiveStr.length;
 }
 
