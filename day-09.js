@@ -2,7 +2,7 @@
 function cutIt(arr) {
   const tempArr = arr;
   const min = Math.min(...tempArr.map(({ length }) => length));
-  for (let i = 0; i <= tempArr.length - 1; i++) {
+  for (let i = 0; i < tempArr.length; i++) {
     if (tempArr[i].length > min) {
       tempArr[i] = tempArr[i].substr(0, min);
     }
@@ -11,6 +11,17 @@ function cutIt(arr) {
 }
 
 // https://www.codewars.com/kata/57277a31e5e51450a4000010/train/javascript
+function firstToLast(str, c) {
+  const posC = str.indexOf(c);
+  const posCLast = str.lastIndexOf(c);
+  if (posC === -1) {
+    return -1;
+  }
+  if (posC === 1 && posCLast === -1) {
+    return 0;
+  }
+  return posCLast - posC;
+}
 
 // https://www.codewars.com/kata/57280481e8118511f7000ffa/train/javascript
 function splitAndMerge(string, separator) {
