@@ -46,16 +46,18 @@ function colorOf(r, g, b) {
   }
   return `#${rInSix}${gInSix}${bInSix}`;
 
-  // let color = new Object();
-  // color.r = r.toString(16);
-  // color.g = g.toString(16);
-  // color.b = b.toString(16);
-  //   for (let property in color){
-  //   if(color[property].length === 1){
-  //   color[property] = '0' + color[property];
-  // }
-  //     return `#${color.r}${color.g}${color.b}`
-  // }
-}
 
 // https://www.codewars.com/kata/57256064856584bc47000611/train/javascript
+function howManySmaller(arr, n) {
+  let arrTemp = arr;
+  let result = 0;
+  for (let i = 0; i < arrTemp.length; i++) {
+    arrTemp[i] = arrTemp[i].toFixed(2);
+  }
+  for (let i = 0; i < arrTemp.length; i++) {
+    if (arrTemp[i] < n) {
+      result++;
+    }
+  }
+  return result;
+}
