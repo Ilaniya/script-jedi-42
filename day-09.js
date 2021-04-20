@@ -13,3 +13,11 @@ function cutIt(arr) {
 // https://www.codewars.com/kata/57277a31e5e51450a4000010/train/javascript
 
 // https://www.codewars.com/kata/57280481e8118511f7000ffa/train/javascript
+function splitAndMerge(string, separator) {
+  const words = string.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].split("").join(separator);
+  }
+  const resultStr = words.join(" ");
+  return resultStr;
+}
