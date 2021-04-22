@@ -14,7 +14,7 @@ function alienLanguage(str) {
 }
 
 // https://www.codewars.com/kata/57284d23e81185ae6200162a/train/javascript
-function decodeWords(str) {
+function decodeWord(str) {
   const chars = str.split('');
   for (let i = 0; i < chars.length; i++) {
     const code = chars[i].charCodeAt();
@@ -30,7 +30,7 @@ function decodeWords(str) {
 function topSecret(str) {
   const words = str.split(" ");
   for (let i = 0; i < words.length; i++) {
-    words[i] = decodeWords(words[i]);
+    words[i] = decodeWord(words[i]);
   }
   return words.join(' ');
 }
