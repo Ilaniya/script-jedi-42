@@ -3,10 +3,7 @@ function match(candidate, job) {
   if (candidate.minSalary === undefined || job.maxSalary === undefined) {
     throw new Error("Sallary is absent");
   }
-  if (candidate.minSalary - candidate.minSalary / 10 <= job.maxSalary) {
-    return true;
-  }
-  return false;
+  return candidate.minSalary - candidate.minSalary / 10 <= job.maxSalary;
 }
 
 // https://www.codewars.com/kata/56c2578be8b139bd5c001bd8/train/javascript
