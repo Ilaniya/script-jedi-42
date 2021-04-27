@@ -1,55 +1,45 @@
 // https://www.codewars.com/kata/56c2a067585d9ac8280003c9/train/javascript
-function matchName(candidate, job) {
-  if (candidate.name === job.name && candidate.preference !== "avoid") {
-    return true;
-  }
-  if (candidate.preference === "avoid") {
-    return false;
-  }
-  for (let i = 0; i < job.substitutions.length; i += 1) {
-    if (job.substitutions[i].name === candidate.name) {
-      return true;
-    }
-    if (job.substitutions[i].name === undefined) {
-      return false;
-    }
-    return false;
-  }
-  return false;
-}
-
-function matchYears(candidate, job) {
-  const bonusYears = candidate.experience / 2;
-  if (candidate.experience >= job.idealYears) {
-    return true;
-  }
-  if (
-    candidate.preference === "desired" &&
-    candidate.experience < job.idealYears
-  ) {
-    if (candidate.experience + bonusYears >= job.idealYears) {
-      return true;
-    }
-    return false;
-  }
-  return false;
-}
-
 function matchSkill(jobSkill, candidateSkills) {
   for (let i = 0; i < candidateSkills.length; i += 1) {
-    const isCandSkillMatch = matchName(candidateSkills[i], jobSkill);
-    const isCandExsperMatch = matchYears(candidateSkills[i], jobSkill);
-    if (isCandSkillMatch && isCandExsperMatch) {
-      return true;
+    if (
+      candidateSkills[i].name === jobSkill.name &&
+      candidateSkills[i].preference !== "avoid"
+    ) {
+      if (candidateSkills[i].experience >= jobSkill.idealYears) {
+        return true;
+      }
+      if (
+        candidateSkills[i].preference === "desired" &&
+        candidateSkills[i].experience < jobSkill.idealYears
+      ) {
+        if (
+          candidateSkills[i].experience + candidateSkills[i].experience / 2 >=
+          jobSkill.idealYears
+        ) {
+          return true;
+        }
+        return false;
+      }
+      return false;
+    }
+    if (
+      candidateSkills[i].name === jobSkill.name &&
+      candidateSkills[i].preference === "avoid"
+    ) {
+      return false;
     }
   }
   return false;
 }
 
 function match(candidate, job) {
-  let isSkillMatch = false;
   for (let i = 0; i < job.skills.length; i += 1) {
-    isSkillMatch = matchSkill(job.skills[i], candidate.skills);
+    const isSkillMatch = matchSkill(job.skills[i], candidate.skills);
+    if (!isSkillMatch) {
+      return false;
+    }
   }
-  return isSkillMatch;
+  return true;
 }
+
+// програма працює не завжди коректно, раз показує 100% проходження, а раз 1-2 тести фейляться. Пофіксати баг мені не вдалось
