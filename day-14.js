@@ -35,19 +35,21 @@ function matchYears(candidate, job) {
   return false;
 }
 
-function match(candidate, job) {
-  for (let i = 0; i < job.skills.length; i += 1) {
-    for (let j = 0; j < candidate.skills.length; j += 1) {
-      const isSkillNameMatch = matchName(candidate.skills[j], job.skills[i]);
-      const isExperienceMatch = matchYears(candidate.skills[j], job.skills[i]);
-      if (isExperienceMatch && isSkillNameMatch) {
-        return true;
-      }
+function matchSkill(jobSkill, candidateSkills) {
+  for (let i = 0; i < candidateSkills.length; i += 1) {
+    const isCandSkillMatch = matchName(candidateSkills[i], jobSkill);
+    const isCandExsperMatch = matchYears(candidateSkills[i], jobSkill);
+    if (isCandSkillMatch && isCandExsperMatch) {
+      return true;
     }
   }
   return false;
 }
 
-
-
-
+function match(candidate, job) {
+  let isSkillMatch = false;
+  for (let i = 0; i < job.skills.length; i += 1) {
+    isSkillMatch = matchSkill(job.skills[i], candidate.skills);
+  }
+  return isSkillMatch;
+}
