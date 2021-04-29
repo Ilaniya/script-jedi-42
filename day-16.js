@@ -22,3 +22,24 @@ function threeInOne(arr) {
 
 
 // https://www.codewars.com/kata/572fdeb4380bb703fc00002c
+function insertPipe(string) {
+  const copyStr = string;
+  const indexOfMidleStr = copyStr.length / 2;
+  if (copyStr.length % 2 === 0) {
+    return `${copyStr.slice(0, indexOfMidleStr)}|${copyStr.slice(
+      indexOfMidleStr,
+      copyStr.length,
+    )}`;
+  }
+  if (copyStr.length % 2 !== 0) {
+    return `${copyStr.slice(0, Math.trunc(indexOfMidleStr))}|${copyStr.slice(
+      indexOfMidleStr + 1,
+      copyStr.length,
+    )}`;
+  }
+}
+function isolateIt(arr) {
+  const arrCopy = arr;
+  const arrResult = arrCopy.map(insertPipe);
+  return arrResult;
+}
