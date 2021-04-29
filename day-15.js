@@ -22,13 +22,11 @@ function loopArr(arr, direction, steps) {
   const arrCopy = arr;
   for (let i = 0; i < steps; i += 1) {
     if (direction === "left") {
-      const elem = arr[0];
-      arrCopy.splice(0, 1);
+      const elem = arrCopy.shift();
       arrCopy.push(elem);
     }
     if (direction === "right") {
-      const elem = arr[arr.length - 1];
-      arrCopy.splice(arr.length - 1, 1);
+      const elem = arrCopy.pop();
       arrCopy.unshift(elem);
     }
   }
