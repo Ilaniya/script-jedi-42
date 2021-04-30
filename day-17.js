@@ -18,6 +18,35 @@ function countGrade(scores) {
 
 
 // https://www.codewars.com/kata/57308546bd9f0987c2000d07
+function reverseNumber(number) {
+  const numToStr = `${number}`;
+  const splitStr = numToStr.split("");
+  const mirrorStr = splitStr.reverse();
+  const joinStr = mirrorStr.join("");
+  if (joinStr[0] === "0") {
+    return `0${parseInt(joinStr, 10)}`;
+  }
+  return parseInt(joinStr, 10);
+}
+
+function mirrorImage(arr) {
+  const resultArr = [];
+  arr.some((x, i) => {
+    const arrToreturn = [];
+    if (arr[i] === arr[i + 1]) {
+      resultArr.push(arr[i], arr[i + 1]);
+      return true;
+    }
+    if (arr[i] !== arr[i + 1] && reverseNumber(arr[i]) === arr[i + 1]) {
+      resultArr.push(arr[i], arr[i + 1]);
+      return true;
+    }
+  });
+  if (resultArr.length === 0) {
+    resultArr.push(-1, -1);
+  }
+  return resultArr;
+}
 
 
 // https://www.codewars.com/kata/5731861d05d14d6f50000626
