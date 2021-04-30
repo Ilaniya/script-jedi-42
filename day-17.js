@@ -50,3 +50,11 @@ function mirrorImage(arr) {
 
 
 // https://www.codewars.com/kata/5731861d05d14d6f50000626
+function compareNumbers(a, b) {
+  return b - a;
+}
+function bigToSmall(arr) {
+  const arrCopy = [].concat(...arr);
+  arrCopy.sort(compareNumbers);
+  return arrCopy.join(">");
+}
