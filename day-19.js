@@ -10,3 +10,24 @@ function countAnimals(animals, count) {
   }
   return resultArr;
 }
+
+// https://www.codewars.com/kata/573975d3ac3eec695b0013e0/train/javascript
+function createRexExp(word) {
+  let wordCopy = word.slice();
+  const regStr =
+    wordCopy[0] + Array(wordCopy.length - 1).join(".") + wordCopy.slice(-1);
+  const regExpres = new RegExp("^" + regStr + "$");
+  return regExpres;
+}
+
+function findSimilarity(str, word) {
+  const arrStr = str.split(" ");
+  const resultArr = [];
+  const reg = createRexExp(word);
+  for (let i = 0; i < arrStr.length; i += 1) {
+    if (reg.test(arrStr[i])) {
+      resultArr.push(arrStr[i]);
+    }
+  }
+  return resultArr.join(" ");
+}
