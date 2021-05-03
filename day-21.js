@@ -10,3 +10,10 @@ function addCommas(money, regex) {
   const resultStr = replaceStr.split("").reverse().join("");
   return resultStr;
 }
+
+
+const regex = /\d(?=(\d{3})+$)/g;
+function addCommas(money, regex) {
+  const resultStr = money.replace(regex, (x) => x + ",");
+  return resultStr;
+}
