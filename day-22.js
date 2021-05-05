@@ -4,3 +4,9 @@ function anyArrows(arrows) {
 }
 
 // https://www.codewars.com/kata/586909e4c66d18dd1800009b/train/javascript
+function multiplArr(arr, num) {
+  return arr.map((el) => el * num);
+}
+function multiplyAll(arr) {
+  return (num) => multiplArr(arr, num);
+}
