@@ -12,3 +12,6 @@ var alpha = {
 
 
 // https://www.codewars.com/kata/52d56d9c6b02b2fa9a0006d9/train/javascript
+Function.prototype.call = function (obj, ...arr) {
+  return this.apply(obj, arr)
+}
