@@ -5,4 +5,8 @@ function always(n) {
   };
 }
 
+function always (n) {
+  return () => n;
+}
+
 // https://www.codewars.com/kata/59bdbe9d46038724ca0000b9/train/javascript
