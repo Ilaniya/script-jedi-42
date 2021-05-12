@@ -13,6 +13,6 @@ function isSantaClausable(obj) {
   return  typeof (obj.sayHoHoHo && obj.distributeGifts && obj.goDownTheChimney) == 'function';
 }
 
-//
+// https://www.codewars.com/kata/52e5e86b2ff32887280002e4/train/javascript
 
 //
