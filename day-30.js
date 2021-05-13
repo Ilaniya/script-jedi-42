@@ -30,4 +30,20 @@ function HumanSkin(model) {
 }
 HumanSkin.prototype = Object.create(Cylon.prototype);
 
-//
+// https://www.codewars.com/kata/588a00ad70720f2cd9000005/train/javascript
+class Router {
+  constructor() {
+    this.router = new Map();
+  }
+
+  bind(url, method, action) {
+    this.router.set(`${url}:${method}`, action);
+  }
+
+  runRequest(url, method) {
+    if (!this.router.has(`${url}:${method}`)) {
+      return "Error 404: Not Found";
+    }
+    return this.router.get(`${url}:${method}`)();
+  }
+}
