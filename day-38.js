@@ -1,10 +1,9 @@
 //  https://www.codewars.com/kata/basics-generators-number-1/javascript
 function* generator() {
   let counter = 1;
-    while (true) {
-    counter = yield counter++ || counter;
+  while (true) {
+    const newValue = yield counter++;
+    counter = newValue || counter;
   }
-  
 }
 
-// рандомні тести проходить, а початкові чомусь ні
